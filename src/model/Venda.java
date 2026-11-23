@@ -1,17 +1,17 @@
 package model;
 
-public class Venda {
+import interfaces.Calculavel;
+
+public class Venda implements Calculavel {
 
     private final int id;
     private Produto produto;
     private int quantidade;
-    private double valorTotal;
 
     public Venda(int id, Produto produto, int quantidade) {
         this.id = id;
         this.produto = produto;
         this.quantidade = quantidade;
-        this.valorTotal = produto.getPreco() * quantidade;
     }
 
     public int getId() {
@@ -34,7 +34,8 @@ public class Venda {
         this.quantidade = quantidade;
     }
 
-    public double getValorTotal() {
-        return valorTotal;
+    @Override
+    public double calcularTotal() {
+        return produto.getPreco() * quantidade;
     }
 }
