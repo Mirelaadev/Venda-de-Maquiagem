@@ -1,0 +1,14 @@
+services:
+  db:
+    image: mysql:8
+    container_name: mysql-maquiagem
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: maquiagem
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
